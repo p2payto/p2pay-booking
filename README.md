@@ -11,9 +11,9 @@ The development of this project is currently paused, waiting for Peach Bitcoin t
 - [x] Optional USDt checkout if configured on btcpay server. Done 
 - [x] Calendar integration. Google calendar done. Looking for privacy oriented calendar to add as alternative.  
 - Fiat integration with Peach Bitcoin api. Under current development
-- Fiat integration with Robosat. Under current development here: https://github.com/p2payserver/robosats-nuxt3. However it requires a deposit (bond) from the buyer so it will not integrated probably.
+- Fiat integration with Robosat. Under current development here: https://github.com/p2payserver/robosats-nuxt3. However it requires a deposit (bond) from the buyer that the merchant may willing to anticipate.
 - [ ] Fiat integration with Mostro. To be considered if feasible
-- [ ] Fiat integration with hodl Hodl. To be considered if feasible
+- [ ] Fiat integration with hodl Hodl. To be considered if feasible, probably creation of accounts is not possible prof api. 
 
 ## Features
 - Self custodial solution with btcpay server integration.  
