@@ -56,7 +56,10 @@ The API key that you provide, must have at least the following privileges: read 
 ## Contribution
 The most valuable contributions at the moment are:
   - Bug report: test the software and report bugs using github issues.
-  - Feedbacks: let me know what would you would like to see implemeneted using github issue.   
+  - Feedbacks: let me know what would you would like to see implemeneted using github issue.
+
+## Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=p2payto/p2pay-booking&type=date&legend=top-left)](https://www.star-history.com/#p2payto/p2pay-booking&type=date&legend=top-left)
 
 Commits to the code are appreciated. Please [sign](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) your commit.
 
