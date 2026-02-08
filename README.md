@@ -50,7 +50,7 @@ Optionally, if you want to show the services in a specific order, add the order 
 9. Deploy (Digital Ocean app platform is supported out of the box, Vercel is supported with a few settings change that I will document soon, Self hosting is supported if you know how to build and deploy a Nuxt application).  
 
 ## BTCPay instance
-If you don't have a btcpay instance, feel free to [email](mailto:giovanni@learntheropes.xyz) me optionally with [PGP](https://keys.openpgp.org/vks/v1/by-fingerprint/5BA78A510CDA44132BDC51FA58C798100FF8A743) and I will invite you to create an account/store on my btcpay server.  
+If you don't have a btcpay instance, feel free to [email](mailto:giovanni@learntheropes.xyz) me optionally with [PGP](https://keys.openpgp.org/vks/v1/by-fingerprint/B683932A2E5629234C48605E5CF45E311D1FB753) and I will invite you to create an account/store on my btcpay server.  
 The API key that you provide, must have at least the following privileges: read invoice, create invoice, read store.
 
 ## Contribution
