@@ -3,7 +3,7 @@ title: Learntheropes
 description: Il mio sito di prenotazione di consulenze sviluppato con Btcpay e Nuxt
 image: learntheropes.png
 email: giovanni@learntheropes.xyz
-pgp: 5BA78A510CDA44132BDC51FA58C798100FF8A743
+pgp: B683932A2E5629234C48605E5CF45E311D1FB753
 nostr: giovanni@learntheropes.xyz
 ---
 Mi chiamo Giovanni. Sono italiano e vivo tra Paraguay e Argentina  

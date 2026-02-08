@@ -2,23 +2,21 @@
 # All settings are optional unless specified as mandatory
 
 # Name that will show in the buyer browser tab
-title: Learntheropes
+title: Your Business Name
 # Description that with be set as html head tag.
-# Useful for search enginesGiovanni Learntheropes.
-description: My consultancies booking website powered by Btcpay and Nuxt
+# Useful for search engines
+description: Multi-rail booking template powered by BTCPay Server, Nuxt 3 and Bitcoin settlement
 # Your profile picture name that you need to put in the public folder.
 image: learntheropes.png
 # List of images to show on the page
 # Save the files in the ./public foder and list the files name here
-# I don't have a gallery in this case. But you have a commented out example.
-# Check the paraguay-residency file for a working example
 gallery:
 #  - picture1.jpg
 #  - picture2.jpg
 # Email address
 email: giovanni@learntheropes.xyz
 # PGP fingerprint
-pgp: 5BA78A510CDA44132BDC51FA58C798100FF8A743
+pgp: B683932A2E5629234C48605E5CF45E311D1FB753
 # Your twitter handle.
 twitter: null
 # Your Nostr pubkey or NIP-05
@@ -35,17 +33,42 @@ tiktok: null
 youtube: null
 # Websites and/or blogs, including the protocol (https://)
 # Note this is an Array of Object
-# You can provide as many websites as you wish or none
 # Each website must contains title and url properties
-# Url must be unique
-# I don´t show websites, but here you have a commented out example:
-websites: null
-  # - title: blog
-  #   url: https://giovanni.learntheropes.xyz/en/
-  # - title: btcpay
-  #  url: https://learntheropes.xyz
+websites:
+  - title: about me
+    url: https://giovanni.learntheropes.xyz
 ---
-My name is Giovanni. I'm italian living between Paraguay and Argentina.  
-In the pre bitcoin era I was a sailor and boatbuilder.  
-Since I discovered Bitcoin in 2014 I left my previous life and worked online as disputes analyist at Localbitcoins Oy.  
-Today I'm a wannabe full stack web developer and cypherpunk Bitcoin maximalist, working with Nodejs, Nuxtjs, Btcpay Server and Bitcoinjs.
+
+This page is part of the **P2Pay Booking Template**.
+
+It is a fully self-custodial, multi-rail booking system designed for businesses that want to:
+
+- Accept Bitcoin (on-chain & Lightning)
+- Accept USDt via BTCPay
+- Integrate fiat via peer-to-peer rails
+- Maintain final settlement in bitcoin
+- Avoid custodial payment processors
+- Operate in high-risk or cross-border environments
+
+## What this template demonstrates
+
+- Profile page powered by Markdown
+- Unlimited services with independent pricing
+- Optional extras per service
+- BTCPay Server invoice generation
+- Multi-language support
+- Static generation capability
+- SEO-optimized structure
+
+You can customize this profile to describe:
+
+- Your consultancy
+- Your agency
+- Your digital services
+- Your high-risk business
+- Your infrastructure offering
+
+All content is Markdown-based.  
+All payments are self-custodial.
+
+This deployment is only a **demo instance** to showcase the template rendering.

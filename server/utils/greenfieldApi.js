@@ -2,32 +2,27 @@ import { readBody, getQuery } from 'h3'
 import { ofetch } from 'ofetch'
 import { defaultLocale } from '~/assets/js/locales'
 
-const {
-  btcpayApikey,
-  public: {
-    isDev
-    // NOTE: deploymentDomain should NOT be used for server-side internal fetches
-    // deploymentDomain
-  }
-} = useRuntimeConfig()
-
 // Wrapper for the BTCPay Greenfield API fetch
 export const greenfieldApi = async (endpoint, event) => {
-  // NOTE: Do NOT call Nuxt Content using an absolute domain here.
-  // In production (DO), the old domain may not resolve from inside the container.
-  // Use a relative path so Nitro handles it internally.
-  const params = encodeURIComponent(JSON.stringify({
-    where: [{
-      _partial: false,
-      _locale: defaultLocale,
-      _path: '/settings',
-      _dir: ''
-    }]
-  }))
+  const config = useRuntimeConfig()
+  const { btcpayApikey } = config
+  const { isDev } = config.public
 
-  const [{
-    btcpay: { storeid, host }
-  }] = await ofetch(`/api/_content/query?_params=${params}`)
+  // IMPORTANT:
+  // Use $fetch for internal Nitro calls (relative URLs supported).
+  // Do NOT use ofetch with relative paths in Node.
+  const [{ btcpay: { storeid, host } }] = await $fetch('/api/_content/query', {
+    query: {
+      _params: JSON.stringify({
+        where: [{
+          _partial: false,
+          _locale: defaultLocale,
+          _path: '/settings',
+          _dir: ''
+        }]
+      })
+    }
+  })
 
   const apiFetch = ofetch.create({
     baseURL: `${host}/api/v1/stores/${storeid}`,
@@ -52,5 +47,9 @@ export const greenfieldApi = async (endpoint, event) => {
     body = await readBody(event)
   }
 
-  return await apiFetch(endpoint, { method, query, body })
+  return await apiFetch(endpoint, {
+    method,
+    query,
+    body
+  })
 }

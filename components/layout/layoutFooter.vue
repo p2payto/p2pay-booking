@@ -12,8 +12,8 @@ const availableLocales = computed(() => (locales.value).filter(i => i.code !== l
       <nav class="section level">
         <div class="level-left">
           <div class="level-item">
-            <IconWithText icon="github" text="btcpay-booking" textVariant="primary" textTo="https://booking.p2pay.to/"
-              textTarget="_blank" />
+            <IconWithText icon="github" text="btcpay-booking" textVariant="primary"
+              textTo="https://github.com/p2payto/p2pay-booking" textTarget="_blank" />
           </div>
         </div>
         <div class="level-center">
