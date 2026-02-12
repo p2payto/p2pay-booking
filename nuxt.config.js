@@ -56,7 +56,7 @@ export default defineNuxtConfig({
         {
           id: 'og:site_name',
           name: 'og:site_name',
-          content: 'btcpay-booking'
+          content: 'p2pay-booking'
         },
         {
           id: 'og:image',
