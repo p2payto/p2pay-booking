@@ -8,24 +8,30 @@ export default defineEventHandler(async (event) => {
   // - XX = Unknown
   const cfCountry = getRequestHeader(event, 'cf-ipcountry')
   if (cfCountry && cfCountry !== 'T1' && cfCountry !== 'XX') {
+    console.log(JSON.stringify({ country: cfCountry, currency: countryToCurrency[cfCountry], source: 'cloudflare' }, null, 2))
     return { country: cfCountry, currency: countryToCurrency[cfCountry], source: 'cloudflare' }
   }
 
   // 2) Fallback to IP-based lookup via IPinfo (server-to-server)
   const ip = getRealIP(event)
   const { ipinfoApiKey } = useRuntimeConfig(event)
-
+  console.log('Determining country for IP:', ip)
+  console.log('Using IPinfo API key:', !!ipinfoApiKey)
   try {
     const res = await $fetch(`https://api.ipinfo.io/lite/${ip}`, {
       query: { token: ipinfoApiKey }
     })
+    console.log('ipinfo response', res)
 
     // IPinfo does NOT use "XX". If it can't determine, `country` is usually missing/null.
     const country = res?.country_code || undefined
     const currency = country ? countryToCurrency[country] : undefined
 
+    console.log(JSON.stringify({ country, currency, source: 'ipinfo' }, null, 2))
     return { country, currency, source: 'ipinfo' }
-  } catch {
+  } catch (error) {
+    console.error('Error fetching country from IPinfo:', error)
+    console.log(JSON.stringify({ country: undefined, currency: undefined, source: 'ipinfo-error' }, null, 2))
     return { country: undefined, currency: undefined, source: 'ipinfo-error' }
   }
 })
