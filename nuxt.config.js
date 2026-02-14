@@ -7,13 +7,7 @@ import {
   routeRules
 } from './assets/js/locales'
 
-const isDev = process.env.NODE_ENV !== 'production'
-const isDeployed = process.env.DEPLOYMENT_DOMAIN && process.env.DEPLOYMENT_DOMAIN !== 'http://localhost:3000'
-const deploymentDomain = (isDeployed) ? `https://${process.env.DEPLOYMENT_DOMAIN}` : 'http://localhost:3000'
-
 export default defineNuxtConfig({
-
-  // debug: (isDeployed) ? false : true,
 
   // Settings specific for production
   $production: {
@@ -51,7 +45,7 @@ export default defineNuxtConfig({
         {
           id: 'og:url',
           name: 'og:url',
-          content: deploymentDomain
+          content: process.env.DEPLOYMENT_URL || 'http://localhost:3000',
         },
         {
           id: 'og:site_name',
@@ -61,7 +55,7 @@ export default defineNuxtConfig({
         {
           id: 'og:image',
           name: 'og:image',
-          content: `${deploymentDomain}/favicon/favicon.png`
+          content: `${process.env.DEPLOYMENT_URL || 'http://localhost:3000'}/favicon/favicon.png`
         },
         {
           id: 'twitter:card',
@@ -71,7 +65,7 @@ export default defineNuxtConfig({
         {
           id: 'twitter:image',
           name: 'twitter:image',
-          content: `${deploymentDomain}/favicon/favicon.png`
+          content: `${process.env.DEPLOYMENT_URL || 'http://localhost:3000'}/favicon/favicon.png`
         },
       ],
       link: [
@@ -94,11 +88,12 @@ export default defineNuxtConfig({
     googleServiceAccountPrivateKey: process.env.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY,
     googlePesonalCalendarIds: process.env.GOOGLE_PERSONAL_CALENDAR_IDS,
     googleBookingCalendarId: process.env.GOOGLE_BOOKING_CALENDAR_ID,
+    ipinfoApiKey: process.env.IPINFO_API_KEY,
     public: {
       defaultService: process.env.DEFAULT_SERVICE,
-      isDev,
-      isDeployed,
-      deploymentDomain: 'https://booking.p2pay.to',
+      isDev: process.env.NODE_ENV !== 'production',
+      isDeployed: process.env.NODE_ENV === 'production',
+      deploymentDomain: process.env.DEPLOYMENT_URL ?? 'http://localhost:3000',
       pusherApikey: process.env.PUSHER_APIKEY,
       pusherCluster: process.env.PUSHER_CLUSTER,
       pusherAppId: process.env.PUSHER_APP_ID
@@ -137,7 +132,7 @@ export default defineNuxtConfig({
 
   // settings for i18n module
   i18n: {
-    baseUrl: deploymentDomain,
+    baseUrl: process.env.DEPLOYMENT_URL || 'http://localhost:3000',
     locales,
     defaultLocale,
     lazy: true,
