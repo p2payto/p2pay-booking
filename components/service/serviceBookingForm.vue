@@ -85,7 +85,7 @@ onMounted(async () => {
   });
 
   // Get available fiat methods for the buyer currency
-  console.log('bookingCurrency.value', bookingCurrency.value)
+  console.error('bookingCurrency.value', bookingCurrency.value)
   buyerPaymentMethods.value = sortBy(peachPaymentMethods
     .filter(method => method.currencies.includes(bookingCurrency.value) && !method.anonymous)
     .map(method => {
@@ -274,7 +274,7 @@ const createInvoice = async () => {
   // Handle page load on form submit
   isLoadingPage.value = true
   // Create the invoice
-  console.log('form.value', form.value)
+  console.error('form.value', form.value)
   await $createInvoice(form.value);
 };
 

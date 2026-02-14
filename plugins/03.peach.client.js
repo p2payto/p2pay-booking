@@ -40,7 +40,7 @@ export default defineNuxtPlugin(nuxtApp => {
         accessToken
       }
     } catch (error) {
-      console.log('Error registering peach account', error);
+      console.error('Error registering peach account', error);
     }
   };
 
@@ -54,7 +54,7 @@ export default defineNuxtPlugin(nuxtApp => {
         publicKey,
         signature,
       } = nuxtApp.$bitcoin.signMessage(message);
-  
+
       // Fetch peach auth endpoint
       const { expiry, accessToken } = await $fetch(`/v1/user/auth/`, {
         baseURL: peachProxy,
@@ -67,13 +67,13 @@ export default defineNuxtPlugin(nuxtApp => {
       });
       nuxtStorage.localStorage.setData('peach_expiry', expiry, 1, 'h');
       nuxtStorage.localStorage.setData('peach_access_token', accessToken, 1, 'h');
-  
+
       return {
         expiry,
         accessToken
       }
     } catch (error) {
-      console.log('Error authorizing peach account', error);
+      console.error('Error authorizing peach account', error);
     }
   };
 
@@ -81,7 +81,7 @@ export default defineNuxtPlugin(nuxtApp => {
     try {
       // Get the peach access token
       let peachAccessToken = nuxtStorage.localStorage.getData('peach_access_token');
-      if (!peachAccessToken ) {
+      if (!peachAccessToken) {
         try {
           const { accessToken } = await registerAccount();
           peachAccessToken = accessToken;
@@ -93,7 +93,7 @@ export default defineNuxtPlugin(nuxtApp => {
       };
       return peachAccessToken;
     } catch (error) {
-      console.log('Error getting peach access token', error);
+      console.error('Error getting peach access token', error);
     }
   };
 
@@ -108,7 +108,7 @@ export default defineNuxtPlugin(nuxtApp => {
         }
       });
     } catch (error) {
-      console.log('Error getting peach account', error);
+      console.error('Error getting peach account', error);
     }
   };
 
@@ -117,9 +117,9 @@ export default defineNuxtPlugin(nuxtApp => {
       const accessToken = await getAccessToken();
 
       const { armoredPgpPublicKey } = await nuxtApp.$pgp.getPgpKeys();
-  
+
       const message = 'foo bar';
-  
+
       return await $fetch(`/v1/user`, {
         baseURL: peachProxy,
         method: 'PATCH',
@@ -136,8 +136,8 @@ export default defineNuxtPlugin(nuxtApp => {
         }
       });
     } catch (error) {
-      console.log('Error updating peach account', error);
-      
+      console.error('Error updating peach account', error);
+
     }
   }
 
@@ -148,16 +148,16 @@ export default defineNuxtPlugin(nuxtApp => {
       // Get the release address and the signed message
       const { id: userId } = await getMe();
       const peachId = userId.substring(0, 8);
-      const { 
-        address: releaseAddress, 
-        signature: messageSignature 
+      const {
+        address: releaseAddress,
+        signature: messageSignature
       } = nuxtApp.$bitcoin.signAddress(peachId);
-  
+
       // Get merchant premium settings
       const {
         premium
       } = await queryContent(`/settings`).findOne();
-  
+
       // Get the meansOfPayment
       const meansOfPayment = {};
       meansOfPayment[currency] = [method];
@@ -166,9 +166,9 @@ export default defineNuxtPlugin(nuxtApp => {
       const paymentData = {};
       paymentData[method] = {};
       paymentData[method].hashes = [crypto.createHash('sha256').update(data).digest('hex')];
-  
-      const sats = parseInt(parseFloat(amount)*100000000);
-  
+
+      const sats = parseInt(parseFloat(amount) * 100000000);
+
       const { id: offerId } = await $fetch(`/v1/offer`, {
         baseURL: peachProxy,
         method: 'POST',
@@ -187,7 +187,7 @@ export default defineNuxtPlugin(nuxtApp => {
       });
       return offerId;
     } catch (error) {
-      console.log('Error posting peach buy offer', error);
+      console.error('Error posting peach buy offer', error);
     }
   }
 
@@ -203,7 +203,7 @@ export default defineNuxtPlugin(nuxtApp => {
         },
       })
     } catch (error) {
-      console.log('Error getting peach matches', error);
+      console.error('Error getting peach matches', error);
     }
   }
 

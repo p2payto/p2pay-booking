@@ -32,10 +32,10 @@ export const greenfieldApi = async (endpoint, event) => {
     },
     redirect: 'follow',
     async onRequestError({ request, error }) {
-      if (isDev) console.log('[fetch request error]', request, error)
+      if (isDev) console.error('[fetch request error]', request, error)
     },
     async onResponseError({ request, response }) {
-      if (isDev) console.log('[fetch response error]', request, response.status, response.body)
+      if (isDev) console.error('[fetch response error]', request, response.status, response.body)
     }
   })
 
