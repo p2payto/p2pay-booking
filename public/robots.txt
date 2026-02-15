@@ -4,5 +4,5 @@ Disallow: /en/invoice
 Disallow: /es/invoice
 Disallow: /it/invoice
 
-Sitemap: https://booking.p2pay.to/sitemap.xml
+Sitemap: https://booking-template.p2pay.to/sitemap.xml
 

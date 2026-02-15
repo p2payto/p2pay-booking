@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
   // IMPORTANT:
   // Set NUXT_PUBLIC_DEPLOYMENT_DOMAIN=booking.p2pay.to (without https://)
   // or fallback to booking.p2pay.to.
-  const rawDomain = (config.public.deploymentDomain || 'booking.p2pay.to')
+  const rawDomain = (config.public.deploymentDomain || 'booking-template.p2pay.to')
     .replace(/^https?:\/\//, '')
     .replace(/\/$/, '')
   const baseUrl = `https://${rawDomain}`

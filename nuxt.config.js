@@ -45,7 +45,7 @@ export default defineNuxtConfig({
         {
           id: 'og:url',
           name: 'og:url',
-          content: process.env.DEPLOYMENT_URL || 'http://localhost:3000',
+          content: process.env.DEPLOYMENT_DOMAIN || 'http://localhost:3000',
         },
         {
           id: 'og:site_name',
@@ -55,7 +55,7 @@ export default defineNuxtConfig({
         {
           id: 'og:image',
           name: 'og:image',
-          content: `${process.env.DEPLOYMENT_URL || 'http://localhost:3000'}/favicon/favicon.png`
+          content: `${process.env.DEPLOYMENT_DOMAIN || 'http://localhost:3000'}/favicon/favicon.png`
         },
         {
           id: 'twitter:card',
@@ -65,7 +65,7 @@ export default defineNuxtConfig({
         {
           id: 'twitter:image',
           name: 'twitter:image',
-          content: `${process.env.DEPLOYMENT_URL || 'http://localhost:3000'}/favicon/favicon.png`
+          content: `${process.env.DEPLOYMENT_DOMAIN || 'http://localhost:3000'}/favicon/favicon.png`
         },
       ],
       link: [
@@ -93,7 +93,7 @@ export default defineNuxtConfig({
       defaultService: process.env.DEFAULT_SERVICE,
       isDev: process.env.NODE_ENV !== 'production',
       isDeployed: process.env.NODE_ENV === 'production',
-      deploymentDomain: process.env.DEPLOYMENT_URL ?? 'http://localhost:3000',
+      deploymentDomain: process.env.DEPLOYMENT_DOMAIN ?? 'http://localhost:3000',
       pusherApikey: process.env.PUSHER_APIKEY,
       pusherCluster: process.env.PUSHER_CLUSTER,
       pusherAppId: process.env.PUSHER_APP_ID
@@ -132,7 +132,7 @@ export default defineNuxtConfig({
 
   // settings for i18n module
   i18n: {
-    baseUrl: process.env.DEPLOYMENT_URL || 'http://localhost:3000',
+    baseUrl: process.env.DEPLOYMENT_DOMAIN || 'http://localhost:3000',
     locales,
     defaultLocale,
     lazy: true,
