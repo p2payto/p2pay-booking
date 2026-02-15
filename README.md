@@ -39,13 +39,13 @@ The development of this project is currently paused, waiting for Peach Bitcoin t
 ## Setup
 1. Clone the repo.  
 2. Edit the repo configuration in `./content/settings.yaml` accordingly to your needs. The file is commented to explain each setting meaning. 
-3. Create a `profile.md` file inside each `./content` folder and the language subfolder. Check [this](https://github.com/p2payto/p2pay-booking/blob/main/content/en/profile.md?plain=1) file comments for available settings.
+3. Create a `profile.md` file inside each `./content` folder and the language subfolder. Check [this](https://github.com/p2payto/booking-teamplate/blob/main/content/en/profile.md?plain=1) file comments for available settings.
 This is optional. If you want to skip the profile and offer just one service, you can set the `DEFAULT_SERVICE` env variable to the service file name.
-4. Create one file for each service inside each `./content` folder and the language subfolder. Check [this](https://github.com/p2payto/p2pay-booking/blob/main/content/en/services/1.paraguay-residency.md?plain=1) file comments for available settings.
+4. Create one file for each service inside each `./content` folder and the language subfolder. Check [this](https://github.com/p2payto/booking-teamplate/blob/main/content/en/services/1.paraguay-residency.md?plain=1) file comments for available settings.
 Optionally, if you want to show the services in a specific order, add the order number at the beginning of the name followed by a dot, eg `1.my-service.md` 
 5. Set the enviroment variables as in the `./.env.example` file.  
-6. Optionally set a custom color in the [first line](https://github.com/p2payto/p2pay-booking/blob/de5be9f24fe72c59a8f10557451a8af0afbdd601/assets/scss/custom.scss#L1) of `./assets/scss/custom.scss`.  
-7. Optionally add or remove languages support by adding/removing translations in `./lang` folder and settings in `./assets/js/locale.js` `locales` [json object](https://github.com/p2payto/p2pay-booking/blob/de5be9f24fe72c59a8f10557451a8af0afbdd601/assets/js/locales.js#L3C5-L26C3). 
+6. Optionally set a custom color in the [first line](https://github.com/p2payto/booking-teamplate/blob/de5be9f24fe72c59a8f10557451a8af0afbdd601/assets/scss/custom.scss#L1) of `./assets/scss/custom.scss`.  
+7. Optionally add or remove languages support by adding/removing translations in `./lang` folder and settings in `./assets/js/locale.js` `locales` [json object](https://github.com/p2payto/booking-teamplate/blob/de5be9f24fe72c59a8f10557451a8af0afbdd601/assets/js/locales.js#L3C5-L26C3). 
 8. For google calendar integration, create a service account on google in a new project. Enable the google calendar API. Create a key and copy the email and the private key. Create a new calendar in your googgle account and share it with writing privilege with the service email. Add all the variables to the `.env` file. Optional add also a comma separated list of calendars id to check when you are busy. These calendars must be shared as well with reading privileges with the service email.
 9. Deploy (Digital Ocean app platform is supported out of the box, Vercel is supported with a few settings change that I will document soon, Self hosting is supported if you know how to build and deploy a Nuxt application).  
 
@@ -61,6 +61,6 @@ The most valuable contributions at the moment are:
 Commits to the code are appreciated. Please [sign](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) your commit.
 
 ## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=p2payto/p2pay-booking&type=date&legend=top-left)](https://www.star-history.com/#p2payto/p2pay-booking&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=p2payto/booking-teamplate&type=date&legend=top-left)](https://www.star-history.com/#p2payto/booking-teamplate&type=date&legend=top-left)
 
 ### Project inspired by [**BitPagos**](https://web.archive.org/web/20141225131358/https://www.bitpagos.com/es/) and [**LNCal**](https://lncal.com/).
