@@ -2,6 +2,8 @@ import { getRequestHeader } from 'h3'
 import countryToCurrency from 'country-to-currency';
 
 export default defineEventHandler(async (event) => {
+  const { public: { isDeployed } } = useRuntimeConfig(event)
+  if (!isDeployed) return { country: 'IT', currency: 'EUR', source: 'local-dev' }
   // 1) Prefer Cloudflare country when it is a real country code.
   // Cloudflare special values:
   // - T1 = Tor
