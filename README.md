@@ -59,8 +59,3 @@ The most valuable contributions at the moment are:
   - Feedbacks: let me know what would you would like to see implemeneted using github issues
 
 Commits to the code are appreciated. Please [sign](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) your commit.
-
-## Star History
-[![Star History Chart](https://api.star-history.com/svg?repos=p2pay/booking-teamplate&type=date&legend=top-left)](https://www.star-history.com/#p2payto/booking-teamplate&type=date&legend=top-left)
-
-### Project inspired by [**BitPagos**](https://web.archive.org/web/20141225131358/https://www.bitpagos.com/es/) and [**LNCal**](https://lncal.com/).
