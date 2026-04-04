@@ -58,4 +58,7 @@ The most valuable contributions at the moment are:
   - Bug report: test the software and report bugs using github issues.
   - Feedbacks: let me know what would you would like to see implemeneted using github issues
 
+### Project inspired by [**BitPagos**](https://web.archive.org/web/20141225131358/https://www.bitpagos.com/es/) and [**LNCal**](https://lncal.com/).
+
+
 Commits to the code are appreciated. Please [sign](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) your commit.
